@@ -1,0 +1,16 @@
+.form {
+    padding: 20px;
+
+    input, button {
+        padding: 5px 10px;
+        margin: 10px 0;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none;
+    }
+
+    button {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}

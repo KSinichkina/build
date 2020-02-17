@@ -1,0 +1,13 @@
+$body-color: #00007F;
+
+.sidebar { 
+  grid-area: 1 / 1 / 2 / 3;
+  background: $body-color;
+  width: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar { 
+      width: 120px;
+  }
+}
