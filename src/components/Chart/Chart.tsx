@@ -1,28 +1,33 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4maps from "@amcharts/amcharts4/maps";
+import * as am4core from '@amcharts/amcharts4/core';
+import * as am4maps from '@amcharts/amcharts4/maps';
 // Importing geodata (map data)
-import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 am4core.useTheme(am4themes_animated);
 
 export type ChartData = {
-      id: string,
-      name: string,
-      value: number,
+  id: string;
+  name: string;
+  value: number;
 };
 
 interface Props {
-    chartData: ChartData[];
+  chartData: ChartData[];
 }
 
-const addColorToCountry = (item: ChartData) => ({...item, fill: am4core.color("#95cdff")})
+const addColorToCountry = (item: ChartData) => ({
+  ...item,
+  fill: am4core.color('#95cdff'),
+});
 
 const Chart = (props: Props) => {
-  const chartRef = useRef<am4core.Optional<string | HTMLElement> | undefined>(undefined);
+  const chartRef = useRef<am4core.Optional<string | HTMLElement> | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const chart = am4core.create(chartRef.current, am4maps.MapChart);
@@ -36,22 +41,21 @@ const Chart = (props: Props) => {
 
     // Configure series
     const polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name} {value}";
-    polygonTemplate.fill = am4core.color("#ddd");
+    polygonTemplate.tooltipText = '{name} {value}';
+    polygonTemplate.fill = am4core.color('#ddd');
 
     // Create hover state and set alternative fill color
-    const hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#00007F");
+    const hs = polygonTemplate.states.create('hover');
+    hs.properties.fill = am4core.color('#00007F');
 
     // Remove Antarctica
-    polygonSeries.exclude = ["AQ"];
+    polygonSeries.exclude = ['AQ'];
 
-     // Add some data
-     polygonSeries.data = props.chartData.map(addColorToCountry);
-
+    // Add some data
+    polygonSeries.data = props.chartData.map(addColorToCountry);
 
     // Bind "fill" property to "fill" key in data
-    polygonTemplate.propertyFields.fill = "fill";
+    polygonTemplate.propertyFields.fill = 'fill';
 
     return () => {
       if (chart) {
@@ -60,11 +64,10 @@ const Chart = (props: Props) => {
     };
   }, []);
 
-
-    return (
-      //@ts-ignore
-      <div ref={chartRef} style={{ width: "100%", height: "500px" }}></div>
-    );
-  }
+  return (
+    //@ts-ignore
+    <div ref={chartRef} style={{ width: '100%', height: '500px' }}></div>
+  );
+};
 
 export default Chart;

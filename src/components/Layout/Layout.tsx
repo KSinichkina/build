@@ -11,13 +11,16 @@ const Layout = () => (
     <Helmet>
       <title>BigID-test</title>
       <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+      ></meta>
     </Helmet>
     <Switch>
-      <Route exact path='/' component={Overview}/>
-      <Route exact path='/form' component={Form}/>
+      <Route exact path="/" component={Overview} />
+      <Route exact path="/form" component={Form} />
     </Switch>
   </div>
-)
+);
 
 export default Layout;

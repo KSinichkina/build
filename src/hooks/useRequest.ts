@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 interface RespType<T> {
@@ -9,7 +8,8 @@ interface RespType<T> {
 
 export function useRequest<T>(
   cb: () => null | Promise<T>,
-  args: ReadonlyArray<any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: ReadonlyArray<any>
 ): RespType<T> {
   const initialState: RespType<T> = {
     data: null,
@@ -23,45 +23,43 @@ export function useRequest<T>(
       _setState(val);
     }
   };
-  useEffect(
-    () => {
-      const res = cb();
-      if (!res) {
-        if (state !== null) {
-          setState(initialState);
-        }
-        return;
+  useEffect(() => {
+    const res = cb();
+    if (!res) {
+      if (state !== null) {
+        setState(initialState);
       }
-      setState({
-        ...state,
-        data: null,
-        isLoading: true,
-        error: null,
+      return;
+    }
+    setState({
+      ...state,
+      data: null,
+      isLoading: true,
+      error: null,
+    });
+
+    res
+      .then(data => {
+        setState({
+          data,
+          isLoading: false,
+          error: null,
+        });
+      })
+      .catch(err => {
+        setState({
+          ...state,
+          data: null,
+          isLoading: false,
+          error: err,
+        });
       });
 
-      res
-        .then(data => {
-          setState({
-            data,
-            isLoading: false,
-            error: null,
-          });
-        })
-        .catch(err => {
-          setState({
-            ...state,
-            data: null,
-            isLoading: false,
-            error: err,
-          });
-        });
-
-      return () => {
-        canceled = true;
-      };
-    },
-    [...args],
-  );
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    return () => {
+      canceled = true;
+    };
+  }, [...args]);
 
   return { ...state };
 }
