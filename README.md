@@ -3,10 +3,10 @@
 Build test project configuration with:
 
 - yarn
-- lerna
 - prettier
 - ESLint
 - precommit
+- lerna
 - react-test-lib
 - cypress
 - storybook
