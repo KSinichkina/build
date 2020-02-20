@@ -57,6 +57,7 @@ export function useRequest<T>(
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       canceled = true;
     };
   }, [...args]);

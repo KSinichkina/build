@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.tsx'
+    './packages/spa/src/index.tsx'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
