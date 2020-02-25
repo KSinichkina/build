@@ -1,0 +1,21 @@
+.ch-spinner {
+  circle {
+    transform-origin: 50% 50% 0;
+    animation: ch-spinner-spin 2s infinite linear;
+  }
+}
+
+@keyframes ch-spinner-spin {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: 10px;
+  }
+  50% {
+    transform: rotate(720deg);
+    stroke-dashoffset: 90px;
+  }
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: 10px;
+  }
+}

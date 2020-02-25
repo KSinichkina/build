@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Spinner } from '@build/storybook';
 import Chart from '../Chart';
 import { useRequest } from '../../hooks/useRequest';
 import { requestUsers } from '../../api/api';
@@ -9,7 +10,7 @@ const Overview = () => {
   const { data, isLoading, error } = useRequest(requestUsers, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (!isLoading && error) {
