@@ -1,0 +1,14 @@
+{
+  "reporterEnabled": "cypress-testrail-accumulative-reporter, mochawesome",
+  "reporterOptions": {
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "domain": "testrail",
+    "username": "email",
+    "password": "password",
+    "projectId": 1,
+    "suiteId": 1111,
+    "runName": "Regression run"
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "viewportWidth": 1248,
+    "viewportHeight": 850,
+    "defaultCommandTimeout": 7000,
+    "requestTimeout": 7000,
+    "waitForAnimations": true,
+    "chromeWebSecurity": false,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  }
+  
