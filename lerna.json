@@ -6,9 +6,13 @@
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "stream": true,
-  "parallel": true,
   "command": {
+    "run": {
+      "stream": true
+    },
+    "exec": {
+      "stream": true
+    },
     "publish": {
       "ignoreChanges": ["*.md"],
       "message": "chore(release): publish",
