@@ -2,5 +2,5 @@
 /node_modules
 /packages/storybook/.out
 /packages/storybook/node_modules
-/packages/storybook/dist
+/packages/storybook/.storybook/dist
 yarn-error.log
