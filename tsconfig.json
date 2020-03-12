@@ -12,6 +12,9 @@
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
     },
+    "paths": {
+        "@build/storybook": ["../storybook/src"],
+      },
     "include": [
         "./packages/**/*"
     ],
