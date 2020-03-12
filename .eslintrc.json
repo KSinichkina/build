@@ -6,12 +6,14 @@
         "jest": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
+        "@bigid-ui/eslint-config-bigid"
     ],
+    // "extends": [
+    //     "plugin:react/recommended",
+    //     "plugin:@typescript-eslint/recommended",
+    //     "prettier/@typescript-eslint",
+    //     "plugin:prettier/recommended"
+    // ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -32,7 +34,7 @@
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/exhaustive-deps": "warn",
         "prettier/prettier": [
             "error",
             {

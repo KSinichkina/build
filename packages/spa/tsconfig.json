@@ -5,7 +5,9 @@
     "rootDir": "./src",
     "esModuleInterop": true
   },
-
+  "paths": {
+    "@build/storybook": ["../storybook/src"],
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

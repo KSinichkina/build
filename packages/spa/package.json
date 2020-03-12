@@ -13,7 +13,6 @@
     "@types/d3-geo": "1.11.1",
     "axios": "0.19.2",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
-    "@build/storybook": "1.0.0"
+    "moment": "^2.24.0"
   }
 }
